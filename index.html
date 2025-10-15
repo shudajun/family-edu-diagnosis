@@ -1,0 +1,512 @@
+<!DOCTYPE html>
+<html lang="zh-CN" data-theme="light" style=""><head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>家庭教育信念类型诊断工具</title>
+    <link rel="stylesheet" href="pico.min.css"><style>
+      body {
+        max-width: 880px;
+        margin: 0 auto;
+        padding: 32px 80px;
+        position: relative;
+        box-sizing: border-box;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', 'PingFang SC', 'Hiragino Sans GB', 'Microsoft YaHei', 'Noto Sans CJK SC', Helvetica, Arial, sans-serif;
+        line-height: 1.6;
+        color: #2d3748;
+        background: white;
+      }
+
+      .header-section {
+        text-align: center;
+        border-bottom: 3px solid #38a169;
+        padding-bottom: 24px;
+        margin-bottom: 40px;
+      }
+
+      .main-title {
+        color: #2d3748;
+        font-size: 28px;
+        font-weight: 700;
+        margin-bottom: 16px;
+      }
+
+      .subtitle {
+        color: #4a5568;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 8px;
+      }
+
+      .author-info {
+        color: #2b6cb0;
+        font-size: 14px;
+        font-weight: 500;
+        font-style: italic;
+      }
+
+      .section-title {
+        color: #2d3748;
+        font-size: 20px;
+        font-weight: 600;
+        margin: 32px 0 16px 0;
+        padding-left: 12px;
+        border-left: 4px solid #38a169;
+      }
+
+      .intro-section {
+        background: #f7fafc;
+        border: 1px solid #e2e8f0;
+        border-radius: 8px;
+        padding: 20px;
+        margin: 20px 0;
+      }
+
+      .questionnaire-section {
+        background: #f8fafc;
+        border: 1px solid #cbd5e0;
+        border-radius: 8px;
+        padding: 24px;
+        margin: 24px 0;
+      }
+
+      .question-item {
+        margin: 24px 0;
+        padding: 16px;
+        background: white;
+        border: 1px solid #e2e8f0;
+        border-radius: 6px;
+      }
+
+      .question-title {
+        color: #2b6cb0;
+        font-size: 16px;
+        font-weight: 600;
+        margin-bottom: 12px;
+      }
+
+      .checkbox-option,
+      .radio-option {
+        margin: 8px 0;
+        display: flex;
+        align-items: center;
+      }
+
+      .checkbox-option input,
+      .radio-option input {
+        margin-right: 8px;
+      }
+
+      .slider-container {
+        margin: 16px 0;
+      }
+
+      .slider {
+        width: 100%;
+        margin: 16px 0;
+      }
+
+      .slider-value {
+        text-align: center;
+        font-weight: 600;
+        color: #2b6cb0;
+        font-size: 18px;
+        margin: 8px 0;
+      }
+
+      .diagnose-btn {
+        background: #38a169;
+        color: white;
+        border: none;
+        padding: 12px 32px;
+        font-size: 16px;
+        font-weight: 600;
+        border-radius: 6px;
+        cursor: pointer;
+        margin: 24px auto;
+        display: block;
+      }
+
+      .diagnose-btn:hover {
+        background: #2f855a;
+      }
+
+      .result-section {
+        display: none;
+        background: #f0fff4;
+        border: 1px solid #68d391;
+        border-radius: 8px;
+        padding: 24px;
+        margin: 24px 0;
+      }
+
+      .result-header {
+        color: #22543d;
+        font-size: 20px;
+        font-weight: 600;
+        margin-bottom: 16px;
+        text-align: center;
+      }
+
+      .result-content {
+        color: #2d3748;
+        line-height: 1.6;
+      }
+
+      .advantage-item,
+      .suggestion-item {
+        margin: 8px 0;
+        padding: 4px 0;
+      }
+
+      .advantage-item {
+        color: #38a169;
+      }
+
+      .suggestion-item {
+        color: #2b6cb0;
+      }
+
+      .matching-score {
+        text-align: center;
+        font-size: 16px;
+        font-weight: 600;
+        color: #d69e2e;
+        margin: 16px 0;
+      }
+
+      .print-btn {
+        background: #2b6cb0;
+        color: white;
+        border: none;
+        padding: 8px 16px;
+        font-size: 14px;
+        border-radius: 4px;
+        cursor: pointer;
+        margin: 16px 8px 0 0;
+      }
+
+      .footer-info {
+        text-align: center;
+        margin-top: 40px;
+        padding-top: 20px;
+        border-top: 1px solid #e2e8f0;
+        color: #718096;
+        font-size: 14px;
+      }
+    </style>
+  </head>
+  <body style="">
+    <div class="header-section">
+      <h1 class="main-title">🎋 家庭教育信念类型诊断工具</h1>
+      <p class="subtitle">基于舒大军校长三种教育信念理论的科学诊断系统</p>
+      <p class="author-info">竹子讲堂认知觉醒系列 · 专业配套工具</p>
+    </div>
+
+    <h2 class="section-title">📊 工具介绍</h2>
+    <div class="intro-section">
+      <p>
+        本工具基于舒大军校长在百悦成龙学校多年教育实践中总结的"三种家庭教育信念理论"，通过科学的问卷设计和算法分析，帮助家长准确识别自己的教育信念类型，并提供个性化的改进建议。
+      </p>
+      <p><strong>使用说明：</strong>请根据您的真实情况回答以下3个核心问题，系统将自动为您生成专业的诊断报告。</p>
+    </div>
+
+    <h2 class="section-title">📝 信念类型诊断问卷</h2>
+    <div class="questionnaire-section">
+      <form id="diagnosticForm">
+        <div class="question-item">
+          <div class="question-title">Q4: 您最担心孩子在哪些方面存在不足？（可多选）</div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="q4a" name="q4" value="A">
+            <label for="q4a">A. 学习成绩和排名</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="q4b" name="q4" value="B">
+            <label for="q4b">B. 考试竞争力</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="q4c" name="q4" value="C">
+            <label for="q4c">C. 思考能力和深度</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="q4d" name="q4" value="D">
+            <label for="q4d">D. 自我改进意识</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="q4e" name="q4" value="E">
+            <label for="q4e">E. 学习态度和动力</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="q4f" name="q4" value="F">
+            <label for="q4f">F. 自制力和专注力</label>
+          </div>
+          <div class="checkbox-option">
+            <input type="checkbox" id="q4g" name="q4" value="G">
+            <label for="q4g">G. 以上都不担心</label>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-title">Q5: 您对目前家庭教育投入产出比的满意度？</div>
+          <div class="slider-container">
+            <input type="range" id="q5" name="q5" min="1" max="10" value="5" class="slider">
+            <div class="slider-value" id="sliderValue">5分</div>
+            <div style="display: flex; justify-content: space-between; font-size: 12px; color: #718096">
+              <span>1分（很不满意）</span>
+              <span>10分（非常满意）</span>
+            </div>
+          </div>
+        </div>
+
+        <div class="question-item">
+          <div class="question-title">Q6: 面对当前教育环境，您的态度更倾向于？</div>
+          <div class="radio-option">
+            <input type="radio" id="q6a" name="q6" value="A">
+            <label for="q6a">A. 反内卷型 - 拒绝盲目竞争</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="q6b" name="q6" value="B">
+            <label for="q6b">B. 适度内卷型 - 必须努力竞争</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="q6c" name="q6" value="C">
+            <label for="q6c">C. 快乐躺平型 - 顺其自然就好</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="q6d" name="q6" value="D">
+            <label for="q6d">D. 困惑迷茫型 - 不知如何选择</label>
+          </div>
+          <div class="radio-option">
+            <input type="radio" id="q6e" name="q6" value="E">
+            <label for="q6e">E. 第三选择型 - 寻找新的路径</label>
+          </div>
+        </div>
+
+        <button type="button" class="diagnose-btn" onclick="diagnose()">🎯 立即诊断</button>
+      </form>
+    </div>
+
+    <div id="resultSection" class="result-section">
+      <div id="resultContent" class="result-content">
+        <!-- 诊断结果将在这里显示 -->
+      </div>
+      <div style="text-align: center; margin-top: 20px">
+        <button class="print-btn" onclick="window.print()">🖨️ 打印报告</button>
+        <button class="print-btn" onclick="saveReport()">💾 保存报告</button>
+      </div>
+    </div>
+
+    <div class="footer-info">
+      <p><strong>竹子讲堂团队</strong></p>
+      <p>基于舒大军校长三种教育信念理论研发 · 2025年10月</p>
+      <p>如需专业解读和个性化指导，欢迎参加竹子讲堂系列课程</p>
+    </div>
+
+    <script>
+      // 更新滑块值显示
+      document.getElementById('q5').addEventListener('input', function () {
+        document.getElementById('sliderValue').textContent = this.value + '分';
+      });
+
+      // 诊断函数
+      function diagnose() {
+        const form = document.getElementById('diagnosticForm');
+        const q4Selections = Array.from(form.querySelectorAll('input[name="q4"]:checked')).map((cb) => cb.value);
+        const q5Score = parseInt(form.querySelector('input[name="q5"]').value);
+        const q6Selection = form.querySelector('input[name="q6"]:checked')?.value;
+
+        if (!q6Selection) {
+          alert('请完成所有问题后再进行诊断！');
+          return;
+        }
+
+        // 诊断逻辑
+        let beliefType = '';
+        let typeIcon = '';
+        let characteristics = '';
+        let advantages = [];
+        let suggestions = [];
+        let matchingScore = '';
+        let courseRecommendation = '';
+
+        // 根据Q6主要判断类型
+        if (
+          q6Selection === 'B' &&
+          q5Score <= 4 &&
+          (q4Selections.includes('A') || q4Selections.includes('B') || q4Selections.includes('E'))
+        ) {
+          beliefType = '内卷型';
+          typeIcon = '🔄';
+          characteristics =
+            '您展现出内卷型家庭教育信念的特征。您对孩子的教育投入很大，但可能因为过度关注竞争和成绩而感到焦虑。您需要学会从竞争思维转向成长思维，关注孩子的内在发展。';
+          advantages = [
+            '✅ 对孩子教育高度重视，投入意愿强烈',
+            '✅ 具备一定的教育资源整合能力',
+            '✅ 对孩子有较高期望和标准',
+          ];
+          suggestions = [
+            '📈 学习科学的教育理念，理解教育本质不是竞争而是成长',
+            '📈 练习情绪调节技巧，管理教育焦虑',
+            '📈 从盲目投入转向科学方法，提高教育效率',
+            '📈 调整教育目标，从短期成绩转向长期能力培养',
+          ];
+          matchingScore = '⭐⭐⭐';
+          courseRecommendation =
+            '建议您优先参加第1讲《信念觉醒》，然后学习第6讲《情绪真相》来管理教育焦虑，第2讲《成长型思维》帮助转变竞争思维。';
+        } else if (q6Selection === 'C' && q5Score >= 5 && q5Score <= 7 && q4Selections.includes('G')) {
+          beliefType = '躺平型';
+          typeIcon = '🛋️';
+          characteristics =
+            '您展现出躺平型家庭教育信念的特征。您相对比较佛系，认为孩子快乐就好。虽然压力较小，但可能需要在关键领域适当增加教育投入和引导。';
+          advantages = [
+            '✅ 心态相对平和，不会给孩子过大压力',
+            '✅ 重视孩子的快乐和身心健康',
+            '✅ 亲子关系相对和谐轻松',
+          ];
+          suggestions = [
+            '📈 理解科学教育投入的重要性和必要性',
+            '📈 为孩子建立适度而清晰的发展目标',
+            '📈 在关键领域增加合理的教育投入',
+            '📈 重视孩子学习习惯和生活习惯的养成',
+          ];
+          matchingScore = '⭐⭐⭐';
+          courseRecommendation =
+            '建议您从第1讲《信念觉醒》开始，然后学习第3讲《目标设定》和第4讲《自驱力培养》，帮助孩子建立内在动力。';
+        } else if (q6Selection === 'D') {
+          beliefType = '困惑迷茫型';
+          typeIcon = '🤔';
+          characteristics =
+            '您目前对家庭教育的方向感到困惑和迷茫。这很正常，说明您在认真思考教育问题。通过系统学习和实践，您将找到适合自己家庭的教育路径。';
+          advantages = [
+            '✅ 具备反思和学习的开放心态',
+            '✅ 愿意探索和寻找更好的教育方式',
+            '✅ 对教育问题有深度思考的意识',
+          ];
+          suggestions = [
+            '📈 系统学习现代教育理念和方法',
+            '📈 明确自己的教育价值观和目标',
+            '📈 寻找专业指导，建立教育信心',
+            '📈 从小的改变开始，逐步建立教育体系',
+          ];
+          matchingScore = '⭐⭐⭐⭐';
+          courseRecommendation =
+            '特别建议您参加第1讲《信念觉醒》，这将帮助您澄清教育理念。然后根据个性化诊断选择后续课程，我们将提供持续跟踪指导。';
+        } else if (
+          (q6Selection === 'A' || q6Selection === 'E') &&
+          q5Score >= 7 &&
+          (q4Selections.includes('C') || q4Selections.includes('D'))
+        ) {
+          beliefType = '觉醒型';
+          typeIcon = '🌟';
+          characteristics =
+            '恭喜您！您展现出觉醒型家庭教育信念的典型特征。您拒绝盲目内卷，也不会消极躺平，而是在寻找教育的第三选择。您更关注孩子思考力和改进力的培养，这正是AI时代最需要的核心能力。';
+          advantages = [
+            '✅ 具备前瞻性教育视野，不被短期成绩绑架',
+            '✅ 注重孩子底层能力培养，投入理性而科学',
+            '✅ 重视孩子内在品质，关注长远发展',
+            '✅ 对新的教育理念开放，愿意学习成长',
+            '✅ 能够保持教育定力，不随波逐流',
+          ];
+          suggestions = [
+            '📈 系统学习觉醒型教育的具体方法和工具',
+            '📈 加入觉醒型家长社群，与同频家长深度交流',
+            '📈 持续关注AI时代教育趋势，升级教育认知',
+            '📈 建立家庭教育哲学体系，形成稳定的指导原则',
+            '📈 培养教育实践的反思总结能力',
+          ];
+          matchingScore = '⭐⭐⭐⭐⭐';
+          courseRecommendation =
+            '您与竹子讲堂的理念高度契合！建议您优先参加第1讲《信念觉醒》进一步强化觉醒型信念，重点关注第5讲《思考力开发》和第9讲《改进力塑造》的实操方法，并积极参与高阶实践课程。';
+        } else {
+          // 混合型或其他情况
+          beliefType = '过渡型';
+          typeIcon = '🔄';
+          characteristics =
+            '您的教育信念呈现出混合特征，正处在从一种类型向另一种类型转变的过程中。这说明您在积极思考和调整教育方式，这是非常积极的信号。';
+          advantages = [
+            '✅ 具备灵活调整的能力和意愿',
+            '✅ 对不同教育理念保持开放态度',
+            '✅ 正在积极探索适合的教育方式',
+          ];
+          suggestions = [
+            '📈 进一步澄清自己的教育价值观和目标',
+            '📈 系统学习科学的教育理念和方法',
+            '📈 根据孩子特点选择适合的教育策略',
+            '📈 保持学习成长的心态，持续优化',
+          ];
+          matchingScore = '⭐⭐⭐⭐';
+          courseRecommendation =
+            '建议您从第1讲《信念觉醒》开始系统学习，根据诊断结果和个人情况选择后续课程，我们将为您提供个性化的学习路径。';
+        }
+
+        // 显示诊断结果
+        const resultContent = document.getElementById('resultContent');
+        resultContent.innerHTML = `
+          <div class="result-header">${typeIcon} 您的家庭教育信念类型：${beliefType}</div>
+          
+          <h4>类型特征分析：</h4>
+          <p>${characteristics}</p>
+          
+          <h4>您的教育优势：</h4>
+          ${advantages.map((item) => `<div class="advantage-item">${item}</div>`).join('')}
+          
+          <h4>进一步提升建议：</h4>
+          ${suggestions.map((item) => `<div class="suggestion-item">${item}</div>`).join('')}
+          
+          <div class="matching-score">竹子讲堂匹配度：${matchingScore}</div>
+          
+          <h4>个性化课程推荐：</h4>
+          <p>${courseRecommendation}</p>
+          
+          <hr style="margin: 20px 0;">
+          <p style="text-align: center; color: #718096; font-size: 14px;">
+            <strong>诊断完成时间：</strong>${new Date().toLocaleString('zh-CN')}<br>
+            基于您的问卷回答个性化生成 · 竹子讲堂专业团队
+          </p>
+        `;
+
+        document.getElementById('resultSection').style.display = 'block';
+        document.getElementById('resultSection').scrollIntoView({ behavior: 'smooth' });
+      }
+
+      // 保存报告函数
+      function saveReport() {
+        const resultContent = document.getElementById('resultContent').innerHTML;
+        const blob = new Blob(
+          [
+            `
+          <!DOCTYPE html>
+          <html>
+          <head>
+            <meta charset="UTF-8">
+            <title>家庭教育信念类型诊断工具</title>
+            <style>
+              body { font-family: 'Microsoft YaHei', sans-serif; line-height: 1.6; margin: 40px; }
+              .result-header { font-size: 20px; font-weight: bold; text-align: center; margin-bottom: 20px; }
+              h4 { color: #2b6cb0; margin-top: 20px; }
+              .advantage-item { color: #38a169; margin: 8px 0; }
+              .suggestion-item { color: #2b6cb0; margin: 8px 0; }
+              .matching-score { text-align: center; font-weight: bold; color: #d69e2e; margin: 20px 0; }
+            </style>
+          </head>
+          <body>
+            <h1 style="text-align: center;">🎋 家庭教育信念类型诊断报告</h1>
+            ${resultContent}
+          </body>
+          </html>
+        `,
+          ],
+          { type: 'text/html' },
+        );
+
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = '家庭教育信念类型诊断报告.html';
+        a.click();
+        URL.revokeObjectURL(url);
+      }
+    </script>
+  
+
+</body></html>
